@@ -39,6 +39,7 @@ ENV/
 # ==================================================
 .DS_Store
 Thumbs.db
+desktop.ini
 
 # ==================================================
 # Dataset Files (DO NOT UPLOAD LARGE DATA)
@@ -46,10 +47,10 @@ Thumbs.db
 data/raw/
 data/processed/
 
-# Carrada / generated radar datasets
+# Carrada dataset / generated radar datasets
 matlab/04_train_with_sim_data/sim_data_npy/
 
-# Optional placeholders
+# Optional placeholders (keep commented unless needed)
 #!data/raw/.gitkeep
 #!data/processed/.gitkeep
 
@@ -60,6 +61,7 @@ matlab/04_train_with_sim_data/sim_data_npy/
 *.h5
 *.pb
 *.ckpt
+*.weights.h5
 saved_model/
 checkpoints/
 
@@ -79,20 +81,17 @@ logs/
 *.npz
 
 # ==================================================
-# Generated Images / Plots
+# Generated Plots / Images
+# (Keep README figures/screenshots uploadable)
 # ==================================================
-*.png
-*.jpg
-*.jpeg
-*.gif
-
-# Uncomment if plots should stay local
-# plots/
+plots/
+generated_images/
 
 # ==================================================
 # Streamlit
 # ==================================================
 .streamlit/secrets.toml
+.streamlit/cache/
 
 # ==================================================
 # Environment Variables
@@ -112,3 +111,22 @@ dist/
 temp/
 tmp/
 *.tmp
+~$*
+
+# ==================================================
+# TensorBoard / TensorFlow
+# ==================================================
+events.out.tfevents*
+
+# ==================================================
+# Archives / Exports
+# ==================================================
+*.zip
+*.rar
+*.7z
+
+# ==================================================
+# Experiment Exports
+# ==================================================
+rejection_sweep.csv
+metrics.json
