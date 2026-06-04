@@ -2,6 +2,7 @@
 # Python Cache / Compiled Files
 # ==================================================
 __pycache__/
+**/__pycache__/
 *.py[cod]
 *$py.class
 
@@ -16,7 +17,7 @@ ENV/
 # ==================================================
 # IDE / Editor Files
 # ==================================================
-.vscode/
+.vscode/**
 .idea/
 *.swp
 *.swo
@@ -25,6 +26,7 @@ ENV/
 # Jupyter
 # ==================================================
 .ipynb_checkpoints/
+**/.ipynb_checkpoints/
 
 # ==================================================
 # Logs / Cache
@@ -44,10 +46,10 @@ desktop.ini
 # ==================================================
 # Dataset Files (DO NOT UPLOAD LARGE DATA)
 # ==================================================
-data/
+data/**
 
 # Generated synthetic radar datasets
-matlab/**/sim_data_npy/
+matlab/**/sim_data_npy/**
 
 # Optional placeholders (keep commented)
 #!data/.gitkeep
@@ -116,6 +118,7 @@ tmp/
 # TensorFlow / TensorBoard
 # ==================================================
 events.out.tfevents*
+tf_import_time.txt
 
 # ==================================================
 # Experiment Exports
