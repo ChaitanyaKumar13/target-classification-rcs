@@ -1,10 +1,5 @@
-Target Classification RCS
+# Target Classification RCS
 
-
-
-Radar-based target classification using CNNs on Carrada and synthetic radar data.
-
-=======
 # Radar Target Classification using RCS and Range-Doppler Maps
 
 CNN-based radar target classification system for intelligent target recognition using Range-Doppler (RD) maps, synthetic Radar Cross Section (RCS) simulation data, confidence-based rejection, and occlusion modeling.
