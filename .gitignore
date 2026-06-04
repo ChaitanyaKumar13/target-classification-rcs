@@ -44,24 +44,23 @@ desktop.ini
 # ==================================================
 # Dataset Files (DO NOT UPLOAD LARGE DATA)
 # ==================================================
-data/raw/
-data/processed/
+data/
 
-# Carrada dataset / generated radar datasets
-matlab/04_train_with_sim_data/sim_data_npy/
+# Generated synthetic radar datasets
+matlab/**/sim_data_npy/
 
-# Optional placeholders (keep commented unless needed)
-#!data/raw/.gitkeep
-#!data/processed/.gitkeep
+# Optional placeholders (keep commented)
+#!data/.gitkeep
 
 # ==================================================
 # Model Files
 # ==================================================
 *.keras
 *.h5
+*.weights.h5
 *.pb
 *.ckpt
-*.weights.h5
+*.tflite
 saved_model/
 checkpoints/
 
@@ -71,8 +70,8 @@ checkpoints/
 outputs/
 runs/
 results/
-tensorboard_logs/
 logs/
+tensorboard_logs/
 
 # ==================================================
 # Large Radar Arrays
@@ -81,8 +80,7 @@ logs/
 *.npz
 
 # ==================================================
-# Generated Plots / Images
-# (Keep README figures/screenshots uploadable)
+# Generated Images / Local Visualizations
 # ==================================================
 plots/
 generated_images/
@@ -97,6 +95,7 @@ generated_images/
 # Environment Variables
 # ==================================================
 .env
+.env.*
 
 # ==================================================
 # Build Files
@@ -114,19 +113,24 @@ tmp/
 ~$*
 
 # ==================================================
-# TensorBoard / TensorFlow
+# TensorFlow / TensorBoard
 # ==================================================
 events.out.tfevents*
 
 # ==================================================
-# Archives / Exports
+# Experiment Exports
+# ==================================================
+*metrics.json
+*rejection_sweep.csv
+
+# ==================================================
+# Archives
 # ==================================================
 *.zip
 *.rar
 *.7z
 
 # ==================================================
-# Experiment Exports
+# Git / Misc
 # ==================================================
-rejection_sweep.csv
-metrics.json
+.git/*.lock
