@@ -2,7 +2,6 @@
 # Python Cache / Compiled Files
 # ==================================================
 __pycache__/
-**/__pycache__/
 *.py[cod]
 *$py.class
 
@@ -17,7 +16,7 @@ ENV/
 # ==================================================
 # IDE / Editor Files
 # ==================================================
-.vscode/**
+.vscode/
 .idea/
 *.swp
 *.swo
@@ -26,7 +25,6 @@ ENV/
 # Jupyter
 # ==================================================
 .ipynb_checkpoints/
-**/.ipynb_checkpoints/
 
 # ==================================================
 # Logs / Cache
@@ -44,18 +42,23 @@ Thumbs.db
 desktop.ini
 
 # ==================================================
-# Dataset Files (DO NOT UPLOAD LARGE DATA)
+# DATASETS (IGNORE EVERYTHING INSIDE)
 # ==================================================
 data/**
+!data/.gitkeep
 
-# Generated synthetic radar datasets
-matlab/**/sim_data_npy/**
-
-# Optional placeholders (keep commented)
-#!data/.gitkeep
+# Ignore Carrada + radar raw files explicitly
+**/Carrada/**
+**/sim_data_npy/**
 
 # ==================================================
-# Model Files
+# MATLAB Generated Data
+# ==================================================
+matlab/**/sim_data_npy/**
+matlab/**/*.npy
+
+# ==================================================
+# MODEL FILES
 # ==================================================
 *.keras
 *.h5
@@ -67,7 +70,7 @@ saved_model/
 checkpoints/
 
 # ==================================================
-# Training Outputs
+# TRAINING OUTPUTS
 # ==================================================
 outputs/
 runs/
@@ -76,38 +79,38 @@ logs/
 tensorboard_logs/
 
 # ==================================================
-# Large Radar Arrays
+# LARGE ARRAYS
 # ==================================================
 *.npy
 *.npz
 
 # ==================================================
-# Generated Images / Local Visualizations
+# GENERATED VISUALS
 # ==================================================
 plots/
 generated_images/
 
 # ==================================================
-# Streamlit
+# STREAMLIT
 # ==================================================
 .streamlit/secrets.toml
 .streamlit/cache/
 
 # ==================================================
-# Environment Variables
+# ENVIRONMENT VARIABLES
 # ==================================================
 .env
 .env.*
 
 # ==================================================
-# Build Files
+# BUILD FILES
 # ==================================================
 build/
 dist/
 *.egg-info/
 
 # ==================================================
-# Temporary Files
+# TEMP FILES
 # ==================================================
 temp/
 tmp/
@@ -115,25 +118,24 @@ tmp/
 ~$*
 
 # ==================================================
-# TensorFlow / TensorBoard
+# TENSORFLOW
 # ==================================================
 events.out.tfevents*
-tf_import_time.txt
 
 # ==================================================
-# Experiment Exports
+# EXPERIMENT EXPORTS
 # ==================================================
 *metrics.json
 *rejection_sweep.csv
 
 # ==================================================
-# Archives
+# ARCHIVES
 # ==================================================
 *.zip
 *.rar
 *.7z
 
 # ==================================================
-# Git / Misc
+# GIT INTERNAL LOCKS
 # ==================================================
 .git/*.lock
