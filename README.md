@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-\# Target Classification RCS
+Target Classification RCS
 
 
 
