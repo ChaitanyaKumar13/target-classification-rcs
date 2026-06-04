@@ -1,0 +1,112 @@
+seed: 42
+
+# (Optional but supported by train_cnn.py via configure_tf_runtime)
+# Helps CPU stability/speed on Windows
+tensorflow:
+  intra_op_threads: 2
+  inter_op_threads: 2
+
+# Batch crash-protection used by train_cnn.py
+# If batch_size > safe_batch_cap, it will auto-reduce to this value
+safe_batch_cap: 16
+
+paths:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  out_dir: "outputs"
+
+data:
+  test_size: 0.2
+  val_size: 0.1
+
+cnn:
+  epochs: 35
+  batch_size: 32
+  lr: 0.001
+  label_smoothing: 0.03
+
+# =========================
+# Carrada dataset
+# =========================
+carrada_root: "data/raw/carrada"
+carrada_limit: null
+carrada_use: "rd"
+
+# NOTE:
+# train_cnn.py always loads Carrada as unbalanced and balances TRAIN only (if enabled below).
+# carrada_balanced is not used by the current script, but keeping it is fine for clarity.
+carrada_balanced: false
+
+# Train balancing controls (applied AFTER split)
+balance_train_only: true
+train_min_per_class: 800
+train_max_per_class: 2400
+oversample_cap_factor: 200
+
+# =========================
+# Class definitions (FINAL)
+# =========================
+class_names:
+  - car
+  - pedestrian
+  - cyclist
+  - drone
+  - truck
+  - tank
+
+# =========================
+# Data augmentation
+# =========================
+use_augmentation: true
+
+augmentation:
+  use_masking_aug: true
+  mask_prob: 0.25          # ✅ (Second run) reduced to avoid over-corruption with occlusion
+  range_mask_min: 3
+  range_mask_max: 10
+  doppler_mask_min: 1
+  doppler_mask_max: 4
+
+# =========================
+# MATLAB synthetic RD data
+# =========================
+# ✅ Updated to match train_cnn.py
+# It supports BOTH keys:
+#   use_sim_data (preferred in script)
+#   use_sim (fallback)
+use_sim_data: true
+use_sim: true
+
+sim_root: "matlab/04_train_with_sim_data/sim_data_npy"
+sim_limit_per_class: null
+
+# =========================
+# Occlusion phenomenon
+# =========================
+occlusion:
+  enable: true
+  mode: "train"            # ✅ keep VAL/TEST clean for fair comparison
+  prob: 0.30               # ✅ (Second run) moderate occlusion training
+  range_band: [12, 40]
+  doppler_band: [2, 10]
+  attenuation: [0.0, 0.4]
+
+# =========================
+# Rejection Threshold
+# =========================
+rejection:
+  enable: true
+  threshold: 0.75
+
+# =========================
+# (Not used by current train_cnn.py)
+# Keeping these is harmless, but they won't affect training unless you add code support.
+# =========================
+use_focal_loss: false
+focal_gamma: 2.0
+focal_alpha_mode: "auto"
+focal_alpha: 0.25
+focal_force: false
+
+use_mixup: false
+mixup_alpha: 0.0

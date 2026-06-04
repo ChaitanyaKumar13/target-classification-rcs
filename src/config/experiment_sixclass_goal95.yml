@@ -1,0 +1,66 @@
+seed: 91
+
+tensorflow:
+  intra_op_threads: 2
+  inter_op_threads: 2
+
+safe_batch_cap: 16
+
+paths:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  out_dir: "outputs"
+
+data:
+  test_size: 0.2
+  val_size: 0.1
+
+cnn:
+  epochs: 80
+  batch_size: 32
+  lr: 0.0005
+  label_smoothing: 0.0
+
+carrada_root: "data/raw/carrada"
+carrada_limit: null
+carrada_use: "rd"
+carrada_single_object_only: false
+
+balance_train_only: true
+train_min_per_class: 700
+train_max_per_class: 2000
+oversample_cap_factor: 200
+
+class_names:
+  - car
+  - pedestrian
+  - cyclist
+  - drone
+  - truck
+  - tank
+
+use_augmentation: true
+augmentation:
+  use_masking_aug: true
+  mask_prob: 0.12
+  range_mask_min: 2
+  range_mask_max: 8
+  doppler_mask_min: 1
+  doppler_mask_max: 3
+
+use_sim_data: true
+use_sim: true
+sim_root: "matlab/04_train_with_sim_data/sim_data_npy"
+sim_limit_per_class: null
+
+occlusion:
+  enable: true
+  mode: "train"
+  prob: 0.18
+  range_band: [10, 32]
+  doppler_band: [2, 8]
+  attenuation: [0.1, 0.5]
+
+rejection:
+  enable: true
+  threshold: 0.75

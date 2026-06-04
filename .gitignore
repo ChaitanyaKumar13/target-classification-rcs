@@ -1,0 +1,77 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyc
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore datasets
+data/**
+!data/.gitkeep
+
+# Radar datasets
+**/Carrada/**
+**/sim_data_npy/**
+
+# Processed data
+data/processed/
+
+# Outputs
+outputs/
+runs/
+results/
+logs/
+
+# Models
+*.keras
+*.h5
+*.weights.h5
+saved_model/
+checkpoints/
+
+# Large arrays
+*.npy
+*.npz
+
+# Tensorboard
+events.out.tfevents*
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Environment files
+.env
+.env.*
+
+# Temp files
+tmp/
+temp/
+*.tmp
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Archives
+*.zip
+*.rar
+*.7z
+
+# MATLAB autosave / outputs
+*.asv
+*.csv
+
+# Local benchmark files
+tf_import_time.txt
